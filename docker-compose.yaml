@@ -9,8 +9,7 @@ services:
     volumes:
       - ./staging:/export
       - ./data:/data/ipfs
-      - ./swarm.key:/home/.ipfs/swarm.key
     ports:
       - 4001:4001
-      - 127.0.0.1:8080:8080
-      - 127.0.0.1:5001:5001
+      - 0.0.0.0:8080:8080
+      - 0.0.0.0:5001:5001

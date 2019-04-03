@@ -28,7 +28,7 @@ docker-compose up -d
 运行以下命令：
 
 ```bash
-docker exec ipfs_host ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://0.0.0.0:5001", "http://127.0.0.1:5001", "https://webui.ipfs.io"]'
+docker exec ipfs_host ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]' 
 docker exec ipfs_host ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "GET", "POST"]'
 ```
 
@@ -41,7 +41,7 @@ docker exec ipfs_host ipfs bootstrap rm --all
 ### 重启服务
 
 ```bash
-docker restart upfs_host
+docker restart ipfs_host
 ```
 
 > 查看邻居
@@ -81,4 +81,3 @@ docker restart upfs_host
 ```bash
 docker exec ipfs_host <ipfs cmd>
 ```
-
