@@ -4,7 +4,6 @@
 
 两台 Linux 设备，分别配置他们的ip地址为 192.168.1.244 和 192.168.1.246
 
-
 ## 步骤
 
 - 修改挂载目录
@@ -47,6 +46,12 @@ services:
 ```bash
 make up
 ```
+
+登陆网页：http://192.168.1.244:5001/webui
+登陆网页：http://192.168.1.246:5001/webui
+
+创建容器到正常访问页面所要等待时间大约 `3-5` 分钟
+
 
 ### 确保配置 IPFS API 以允许跨源（CORS）请求
 
@@ -148,7 +153,28 @@ docker exec ipfs_host ipfs swarm peers
 
 ## 测试
 
-TODO
+- 在 192.168.1.244 节点 添加文件
+
+```bash
+docker exec ipfs_host ipfs add /data/ipfs/version
+```
+
+```text
+ 2 B / 2 B  100.00%added QmaHbbushv2gYBUyofdm853cy1HTcNuinqagCfMjMdGmNw version
+```
+
+- 在 192.168.1.246 节点 用哈希值读取该文件
+
+```bash
+docker exec ipfs_host ipfs cat QmaHbbushv2gYBUyofdm853cy1HTcNuinqagCfMjMdGmNw
+```
+
+```text
+7
+```
+
+搭建的私有网络可以正常使用。
+
 
 ## 附录
 
