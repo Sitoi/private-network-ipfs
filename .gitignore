@@ -106,3 +106,9 @@ venv.bak/
 .mypy_cache/
 
 .idea/
+data/blocks/
+data/config
+data/datastore/
+data/datastore_spec
+data/keystore/
+data/version
